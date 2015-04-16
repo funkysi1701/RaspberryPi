@@ -1,3 +1,9 @@
+<?php if($_SERVER["QUERY_STRING"]=='')
+{
+$Date = date("Y-m-d_Hi").".jpg";
+header('Location: http://'.$_SERVER["SERVER_ADDR"]."?".$Date);
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +17,7 @@ $min = $min - 2;
 if($min < 0) {
 	$min = 58;
 	$hour = $hour -1;
+if($hour < 10) $hour = "0".$hour;
 }
 if($min < 10) $min = "0".$min;
 echo "?".date("Y-m-d")."_".$hour.$min.".jpg";
@@ -25,6 +32,7 @@ if($min < 10) $min = "0".$min;
 if($min > 58) {
 	$min = "00";
 	$hour = $hour + 1;
+if($hour < 10) $hour = "0".$hour;
 }
 echo "?".date("Y-m-d")."_".$hour.$min.".jpg";
 ?>">Next ></a>
