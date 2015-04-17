@@ -1,7 +1,12 @@
 <?php if($_SERVER["QUERY_STRING"]=='')
 {
 $Date = date("Y-m-d_Hi").".jpg";
-header('Location: http://'.$_SERVER["SERVER_ADDR"]."?".$Date);
+if(!substr($Date,-6,2)%2==0)
+{
+$Date = date("Y-m-d_H")."00.jpg";
+}
+header('Location: http://'.$_SERVER["SERVER_NAME"]."?".$Date);
+
 }
 ?>
 <!DOCTYPE html>
