@@ -1,18 +1,16 @@
 <?php if($_SERVER["QUERY_STRING"]=='')
 {
 $Date = date("Y-m-d_Hi").".jpg";
-if(!substr($Date,-6,2)%2==0)
-{
-$Date = date("Y-m-d_H")."00.jpg";
-}
-header('Location: http://'.$_SERVER["SERVER_NAME"]."?".$Date);
 
+header('Location: http://'.$_SERVER["SERVER_NAME"]."?".$Date);
 }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Photos</title>
+<meta http-equiv="refresh" content="60; url=index.php" >
 </head>
 <body>
 <a href="<?php
